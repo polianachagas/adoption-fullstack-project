@@ -1,6 +1,9 @@
 package com.polianachagas.adoption_project.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,6 +20,11 @@ public class AnimalController {
 	@PostMapping("/animals")
 	Animal newAnimal(@RequestBody Animal newAnimal) {
 		return animalRepository.save(newAnimal);
+	}
+	
+	@GetMapping("/animals")
+	List<Animal> getAllAnimals() {
+		return animalRepository.findAll();
 	}
 	
 }
