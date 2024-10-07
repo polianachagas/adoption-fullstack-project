@@ -1,30 +1,42 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 
 export default function Home() {
+
+    const [animals, setAnimals] = useState([])
+
+    useEffect(()=> {
+        loadAnimals();
+    }, []);
+
+    const loadAnimals=async()=> {
+        const result = await axios.get("http://localhost:8080/animals");
+        setAnimals(result.data);
+    }
+
   return (
     <table className="table">
         <thead>
             <tr>
             <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Photo</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            </tr>
             
-            <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            </tr>
+            {
+                animals.map((animal, index)=>(
+                    <tr>
+                        <th scope='row' key={index}>{index+1}</th>
+                        <td>{animal.name}</td>
+                        <td>{animal.age}</td>
+                        <td>{animal.image}</td>
+                    </tr>
+                ))
+            }
+
         </tbody>
     </table>
   )
