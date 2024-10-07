@@ -33,6 +33,12 @@ export default function Home() {
                         <td>{animal.name}</td>
                         <td>{animal.age}</td>
                         <td>{animal.image}</td>
+
+                        <td>
+                        <button className="btn btn-primary mx-2">View</button>
+                        <button className="btn btn-primary mx-2">Edit</button>
+                        <button className="btn btn-primary mx-2">Delete</button>
+                        </td>
                     </tr>
                 ))
             }
