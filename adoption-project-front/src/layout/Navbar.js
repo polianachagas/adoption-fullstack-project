@@ -11,12 +11,11 @@ export default function Navbar() {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
-            <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
+
             <li className="nav-item">
                 <Link className='btn btn-outline-dark' to="/addanimal">Add Animal</Link>
             </li>
+            
             </ul>
         </div>
         </div>
