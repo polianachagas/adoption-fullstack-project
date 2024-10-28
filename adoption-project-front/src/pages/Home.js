@@ -21,7 +21,6 @@ export default function Home() {
             <th scope="col">#</th>
             <th scope="col">Name</th>
             <th scope="col">Age</th>
-            <th scope="col">Photo</th>
             </tr>
         </thead>
         <tbody>
@@ -32,7 +31,6 @@ export default function Home() {
                         <th scope='row' key={index}>{index+1}</th>
                         <td>{animal.name}</td>
                         <td>{animal.age}</td>
-                        <td>{animal.image}</td>
 
                         <td>
                         <button className="btn btn-primary mx-2">View</button>

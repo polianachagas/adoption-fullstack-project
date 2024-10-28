@@ -12,7 +12,6 @@ public class Animal {
 	private Long id;
 	private String name;
 	private Integer age;
-	private String image;
 	
 	public Long getId() {
 		return id;
@@ -32,12 +31,7 @@ public class Animal {
 	public void setAge(Integer age) {
 		this.age = age;
 	}
-	public String getImage() {
-		return image;
-	}
-	public void setImage(String image) {
-		this.image = image;
-	}
+
 	
 	
 	
