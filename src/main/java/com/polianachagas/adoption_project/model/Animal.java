@@ -12,6 +12,7 @@ public class Animal {
 	private Long id;
 	private String name;
 	private Integer age;
+	private String photoUrl;
 	
 	public Long getId() {
 		return id;
@@ -30,6 +31,12 @@ public class Animal {
 	}
 	public void setAge(Integer age) {
 		this.age = age;
+	}
+	public String getPhotoUrl() {
+		return photoUrl;
+	}
+	public void setPhotoUrl(String photoUrl) {
+		this.photoUrl = photoUrl;
 	}
 
 	
