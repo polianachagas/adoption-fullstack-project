@@ -11,15 +11,31 @@ export default function AddAnimal() {
         age: "",
     });
 
+    const [file, setFile] = useState(null);
+
     const{name, age} = animal;
 
     const onInputChange=(e)=>{
         setAnimal({ ...animal, [e.target.name]:e.target.value});
     }
 
+    const onFileChange=(e)=>{
+        setFile(e.target.files[0]);
+    }
+
     const onSubmit = async (e) => {
         e.preventDefault();
-        await axios.post("http://localhost:8080/animals", animal);
+
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append('age', age);
+        formData.append('file', file);
+
+        await axios.post("http://localhost:8080/animals", formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        });
         navigate("/");
     }
 
@@ -51,6 +67,17 @@ export default function AddAnimal() {
                             name='age'
                             value={age}
                             onChange={(e)=>onInputChange(e)}
+                        />
+                    </div>
+
+                    <div className='mb-3'>
+                        <label htmlFor='image' className='form-label'>Image</label>
+                        <input
+                            type={"file"}
+                            className='form-control'
+                            placeholder='Enter the image of the animal'
+                            name='file'
+                            onChange={(e)=>onFileChange(e)}
                         />
                     </div>
                 

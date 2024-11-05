@@ -1,0 +1,9 @@
+.animal-image {
+    width: 150px;
+    height: auto;
+    transition: transform .2s;
+}
+
+.animal-image:hover {
+    transform: scale(2);
+}

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import '../Home.css'
 
 export default function Home() {
 
-    const [animals, setAnimals] = useState([])
+    const [animals, setAnimals] = useState([]);
 
     useEffect(()=> {
         loadAnimals();
@@ -18,19 +19,32 @@ export default function Home() {
     <table className="table">
         <thead>
             <tr>
-            <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <th scope="col">Age</th>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Age</th>
+                <th scope="col">Photo</th>
             </tr>
         </thead>
         <tbody>
             
             {
                 animals.map((animal, index)=>(
-                    <tr>
+                    <tr key={index}>
                         <th scope='row' key={index}>{index+1}</th>
                         <td>{animal.name}</td>
                         <td>{animal.age}</td>
+                        <td>
+                            {animal.imageUrl ? (
+                                <img 
+                                    src={animal.imageUrl} 
+                                    alt={animal.name} 
+                                    
+                                    className='animal-image'
+                                />
+                            ) : (
+                                "No image available"
+                            )}
+                        </td>
 
                         <td>
                         <button className="btn btn-primary mx-2">View</button>
