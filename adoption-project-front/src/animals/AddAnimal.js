@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import '../styles/AddAnimal.css'
 
 export default function AddAnimal() {
   
@@ -41,12 +42,12 @@ export default function AddAnimal() {
 
     return ( 
     <div className='container'>
-        <div className='row'>
-            <div className='col-md-6 offset-md-3 border rounded p-4 mt-2 shadow'>
-                <h2 className='text-center m-4'>Register Animal</h2>
+        <div>
+            <div className='forms'>
+                <h2>Register Animal</h2>
                 
                 <form onSubmit={(e)=>onSubmit(e)}>
-                    <div className='mb-3'>
+                    <div className='var'>
                         <label htmlFor='Name' className='form-label'>Name</label>
                         <input
                             type={"text"}
@@ -58,7 +59,7 @@ export default function AddAnimal() {
                         />
                     </div>
 
-                    <div className='mb-3'>
+                    <div className='var'>
                         <label htmlFor='Age' className='form-label'>Age</label>
                         <input
                             type={"number"}
@@ -70,7 +71,7 @@ export default function AddAnimal() {
                         />
                     </div>
 
-                    <div className='mb-3'>
+                    <div className='var'>
                         <label htmlFor='image' className='form-label'>Image</label>
                         <input
                             type={"file"}
@@ -81,9 +82,9 @@ export default function AddAnimal() {
                         />
                     </div>
                 
-                    <button type='submit' className='btn btn-outline-primary'>Submit</button>
+                    <button type='submit' className='submit-btn'>Submit</button>
 
-                    <Link type='submit' className='btn btn-outline-danger mx-2' to="/">Cancel</Link>
+                    <Link type='submit' className='cancel-btn' to="/">Cancel</Link>
                 </form>
             </div>
         </div>

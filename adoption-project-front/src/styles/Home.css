@@ -1,0 +1,58 @@
+* {
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100vh;  
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.table-container {
+    background-image: url(../images/catHome2.jpg);
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    
+    background-color: #564154;
+    min-height: 100vh;
+}
+
+.title-home {
+    color: #F7DAD9;
+    margin-top: 0;
+    padding-top: 10px;
+}
+
+.table {
+    border: 1px solid #564154;
+    border-radius: 5px;
+    background-color: #F7DAD9;
+    margin: 20px;
+    
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+
+    height: 450px;
+    overflow:auto;  
+}
+
+th {
+    color: #564154;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #564154;
+}
+
+.animal-image {
+    width: 150px;
+    height: auto;
+    transition: transform .2s;
+}
+
+.animal-image:hover {
+    transform: scale(2);
+}
+

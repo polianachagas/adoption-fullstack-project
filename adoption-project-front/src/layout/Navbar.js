@@ -1,23 +1,21 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import '../styles/Navbar.css'
 
 export default function Navbar() {
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
-        <div className="container-fluid">
-        <a className="navbar-brand" href="#">Adoption</a>
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav">
+    <nav className="navbar">
+        <div className="container-navbar">
+          <a className="navbar-brand" href="#">Adoption</a>
+          <div>
+              <ul>
 
-            <li className="nav-item">
-                <Link className='btn btn-outline-dark' to="/addanimal">Add Animal</Link>
-            </li>
-            
-            </ul>
-        </div>
+                <li className="nav-item">
+                    <Link className='btn' to="/addanimal">Add Animal</Link>
+                </li>
+              
+              </ul>
+          </div>
         </div>
     </nav>
   )

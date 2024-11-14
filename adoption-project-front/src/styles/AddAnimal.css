@@ -1,0 +1,77 @@
+body {
+    height: 100vh;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+    background-image: url(../images/catForms.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.forms {
+    border: 1px solid #564154;
+    border-radius: 5px;
+    padding: 25px;
+    background-color: #fcf0ef;
+}
+
+h2 {
+    color: #564154;
+    font-size: 2rem;
+}
+
+.var {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+input {
+    border: 1px solid #564154;
+    border-radius: 5px;
+    padding: 7px;
+    margin: 10px;
+}
+
+.submit-btn {
+    background-color: #89FC00;
+    color: #564154;
+    padding: 10px;
+    border: 1px solid #89FC00;
+    border-radius: 5px;
+    font-size: 1rem;
+
+    margin-right: 10px;
+}
+
+.submit-btn:hover {
+    background-color: #564154;
+    color: #89FC00;
+    border: 1px solid #564154;
+    cursor: pointer;
+}
+
+.cancel-btn {
+    background-color: #BA3F1D;
+    color: #F7DAD9;
+    padding: 10px;
+    border: 1px solid #BA3F1D;
+    border-radius: 5px;
+    font-size: 1rem;
+
+    margin-right: 10px;
+}
+
+.cancel-btn:hover {
+    background-color: #e03c0a;
+    color: black;
+    border: 1px solid #e03c0a;
+    cursor: pointer;
+}

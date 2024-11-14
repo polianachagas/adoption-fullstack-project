@@ -1,0 +1,41 @@
+.navbar {
+    background-color: #80cccc;
+}
+
+.navbar-brand {
+    color: #564154;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2rem;
+}
+
+.container-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+.btn {
+    border: 2px solid #564154;
+    padding: 8px;
+    margin: 5px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #F3D9DC;
+    background-color: #564154;
+}
+
+.btn:hover {
+    border: 2px solid #F3D9DC;
+    color: #564154;
+    background-color: #F3D9DC;
+    cursor: pointer;
+}

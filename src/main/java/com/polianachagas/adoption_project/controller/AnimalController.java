@@ -76,8 +76,6 @@ public class AnimalController {
 		} catch (IOException exception) {
 			return ResponseEntity.status(500).body(null);
 		}
-		
-		
 	}
 	
 	//Animal newAnimal(@RequestBody Animal newAnimal) {
