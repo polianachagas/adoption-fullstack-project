@@ -57,7 +57,7 @@ export default function Home() {
                             </td>
 
                             <td>
-                            <button className="btn">View</button>
+                            <Link className="btn" to={`/viewanimal/${animal.id}`}>View</Link>
                             <Link className="btn" to={`/editanimal/${animal.id}`}>Edit</Link>
                             <button className="btn" onClick={()=> deleteAnimal(animal.id)}>Delete</button>
                             </td>

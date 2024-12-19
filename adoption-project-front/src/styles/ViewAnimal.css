@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100vh;  
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-table {
+    background-color: #F7DAD9;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    height: 80%;
+    width: 50%;
+
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+
+strong {
+    color: #564154;
+}
+
+.animal-image-view {
+    width: 60%;
+    margin: 50px;
+}
