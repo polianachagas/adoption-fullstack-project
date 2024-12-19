@@ -11,6 +11,7 @@ import org.springframework.core.io.UrlResource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -122,6 +123,15 @@ public class AnimalController {
 		} catch (IOException e) {
 			return ResponseEntity.status(500).build();
 		}
+	}
+	
+	@DeleteMapping("/animals/{id}")
+	String deleteAnimal(@PathVariable Long id) {
+		if (!animalRepository.existsById(id)) {
+			throw new AnimalNotFoundException(id);
+		}
+		animalRepository.deleteById(id);
+		return "Animal with id " + id + " has been deleted!";
 	}
 	
 	
