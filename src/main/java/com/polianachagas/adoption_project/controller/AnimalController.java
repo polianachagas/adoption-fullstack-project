@@ -111,7 +111,7 @@ public class AnimalController {
 			Path targetLocation = fileStorageLocation.resolve(fileName);
 			file.transferTo(targetLocation);
 
-			String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/files/upload")
+			String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/files/upload/")
 					.path(fileName).toUriString();
 
 			animal.setName(name);
