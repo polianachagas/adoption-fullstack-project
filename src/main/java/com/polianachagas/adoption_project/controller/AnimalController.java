@@ -14,7 +14,10 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -78,10 +81,6 @@ public class AnimalController {
 		}
 	}
 	
-	//Animal newAnimal(@RequestBody Animal newAnimal) {
-	//	return animalRepository.save(newAnimal);
-	//}
-	
 	@GetMapping("/api/files/upload/{filename:.+}")
 	public ResponseEntity<Resource> getFile(@PathVariable String filename) {
 	    try {
@@ -98,6 +97,33 @@ public class AnimalController {
 	        return ResponseEntity.status(500).build();
 	    }
 	}
+	
+	//edit
+	@PutMapping("/animals/{id}")
+	public ResponseEntity<Animal> updateAnimal(@PathVariable Long id, @RequestParam("file") MultipartFile file,
+			@RequestParam("name") String name, @RequestParam("age") Integer age) {
+
+		Animal animal = animalRepository.findById(id).orElseThrow(() -> new AnimalNotFoundException(id));
+
+		try {
+			String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+			Path targetLocation = fileStorageLocation.resolve(fileName);
+			file.transferTo(targetLocation);
+
+			String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/files/upload")
+					.path(fileName).toUriString();
+
+			animal.setName(name);
+			animal.setAge(age);
+			animal.setImageUrl(fileDownloadUri);
+
+			Animal updatedAnimal = animalRepository.save(animal);
+			return ResponseEntity.ok(updatedAnimal);
+		} catch (IOException e) {
+			return ResponseEntity.status(500).build();
+		}
+	}
+	
 	
 	@GetMapping("/animals")
 	List<Animal> getAllAnimals() {
