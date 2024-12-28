@@ -8,51 +8,73 @@ body, html {
 }
 
 .table-container {
-    background-image: url(../images/catHome2.jpg);
-    background-size: cover;
-    background-position: bottom;
-    background-repeat: no-repeat;
-    
-    background-color: #564154;
+    background-color: #034C3C;
     min-height: 100vh;
 }
 
 .title-home {
     color: #F7DAD9;
     margin-top: 0;
-    padding-top: 10px;
+    padding-top: 20px;
+    font-size: 54px;
 }
 
 .table {
     border: 1px solid #564154;
     border-radius: 5px;
     background-color: #F7DAD9;
-    margin: 20px;
-    
+    margin: 10px 100px;
+    padding: 10px;
     display: inline-block;
     justify-content: center;
     align-items: center;
 
-    height: 450px;
-    overflow:auto;  
+    height: auto;
 }
 
-th {
-    color: #564154;
-}
-
-th, td {
-    padding: 10px;
-    border-bottom: 1px solid #564154;
+.animal-info {
+    position: relative;
+    display: inline-block;
+    margin: 10px;
+    flex: 1 1 calc(33.33% - 20px); 
+    max-width: calc(33.33% - 20px); 
 }
 
 .animal-image {
-    width: 150px;
-    height: auto;
-    transition: transform .2s;
+    height: 350px;
+    width: 350px;
+    object-fit: cover;
+    border-radius: 5px;
+    display: block;
+    margin: 5px;
+    z-index: 1;
 }
 
 .animal-image:hover {
-    transform: scale(2);
+    opacity: .5;
+    transition: .1s ease;
 }
+
+.options {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: 10px;
+}
+
+.animal-name {
+    color: #564154;
+    background-color: #F7DAD9;
+    padding: 3px;
+    position: absolute;
+    z-index: 2;
+    border-radius: 5px;
+    transform: translate(1%, -50%);
+}
+
+
+
+
+
 

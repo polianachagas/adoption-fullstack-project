@@ -27,17 +27,29 @@ h2 {
     font-size: 2rem;
 }
 
+label {
+    margin: 10px;
+}
+
 .var {
     display: flex;
-    justify-content: left;
+    justify-content: space-between;
     align-items: center;
 }
 
-input {
+label {
+    flex: 1;
+    text-align: right;
+    padding-right: 10px;
+}
+
+input, select, textarea {
+    flex: 3;
     border: 1px solid #564154;
     border-radius: 5px;
     padding: 7px;
     margin: 10px;
+    width: 100%;
 }
 
 .submit-btn {
@@ -48,7 +60,8 @@ input {
     border-radius: 5px;
     font-size: 1rem;
 
-    margin-right: 10px;
+    margin-right: 20px;
+    margin-top: 20px;
 }
 
 .submit-btn:hover {
@@ -66,7 +79,8 @@ input {
     border-radius: 5px;
     font-size: 1rem;
 
-    margin-right: 10px;
+    margin-left: 20px;
+    margin-top: 20px;
 }
 
 .cancel-btn:hover {

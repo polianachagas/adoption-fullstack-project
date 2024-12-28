@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-body, html {
+body {
     height: 100vh;  
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -11,25 +11,60 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
 }
 
 .info-table {
     background-color: #F7DAD9;
     border: 2px solid #fff;
     border-radius: 5px;
-    height: 80%;
+    height: auto;
     width: 50%;
 
-    display: block;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+h1 {
+    text-align: center;
+    font-size: 36px;
+}
+
+.info ul {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.info ul li {
+    margin-bottom: 10px;
+    font-size: 18px;
 }
 
 strong {
     color: #564154;
 }
 
+.btn-adopt {
+    font-size: 18px;
+    border: 2px solid #564154;
+    padding: 8px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #F3D9DC;
+    background-color: #564154;
+    margin-bottom: 20px;
+}
+
+.btn-adopt:hover {
+    border: 2px solid #F3D9DC;
+    cursor: pointer;
+    transform: scale(1.5);
+}
+
 .animal-image-view {
-    width: 60%;
-    margin: 50px;
+    width: 300px;
+    margin: 30px;
 }

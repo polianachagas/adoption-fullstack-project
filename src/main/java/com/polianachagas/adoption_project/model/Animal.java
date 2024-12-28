@@ -1,5 +1,8 @@
 package com.polianachagas.adoption_project.model;
 
+import com.polianachagas.adoption_project.enums.AnimalSex;
+import com.polianachagas.adoption_project.enums.AnimalFivFelv;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -11,7 +14,11 @@ public class Animal {
 	@GeneratedValue
 	private Long id;
 	private String name;
-	private Integer age;
+	private Double age;
+	private String color;
+	private AnimalSex animalSex;
+	private AnimalFivFelv animalFivFelv;
+	private String history;
 	private String imageUrl;
 	
 	public Long getId() {
@@ -26,11 +33,37 @@ public class Animal {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Integer getAge() {
+	public Double getAge() {
 		return age;
 	}
-	public void setAge(Integer age) {
+	public void setAge(Double age) {
 		this.age = age;
+	}
+	public String getcolor() {
+		return color;
+	}
+	public void setcolor(String color) {
+		this.color = color;
+	}
+	
+	public AnimalSex getAnimalSex() {
+		return animalSex;
+	}
+	public void setAnimalSex(AnimalSex animalSex) {
+		this.animalSex = animalSex;
+	}
+	public AnimalFivFelv getAnimalFivFelv() {
+		return animalFivFelv;
+	}
+	public void setAnimalFivFelv(AnimalFivFelv animalFivFelv) {
+		this.animalFivFelv = animalFivFelv;
+	}
+	
+	public String getHistory() {
+		return history;
+	}
+	public void setHistory(String history) {
+		this.history = history;
 	}
 	public String getImageUrl() {
 		return imageUrl;

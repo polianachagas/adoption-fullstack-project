@@ -7,7 +7,9 @@ import java.nio.file.Paths;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -16,18 +18,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.UrlResource;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 
+import com.polianachagas.adoption_project.enums.AnimalSex;
+import com.polianachagas.adoption_project.enums.AnimalFivFelv;
 import com.polianachagas.adoption_project.exception.AnimalNotFoundException;
 import com.polianachagas.adoption_project.images.FileStorageProperties;
 import com.polianachagas.adoption_project.model.Animal;
@@ -57,7 +54,12 @@ public class AnimalController {
 	public ResponseEntity<Animal> newAnimal(
 			@RequestParam("file") MultipartFile file,
 			@RequestParam("name") String name,
-			@RequestParam("age") Integer age) {
+			@RequestParam("age") Double age,
+			@RequestParam("color") String color,
+			@RequestParam("animalSex") AnimalSex animalSex,
+			@RequestParam("animalFivFelv") AnimalFivFelv animalFivFelv,
+			@RequestParam("history") String history)
+	{
 		
 		String fileName = StringUtils.cleanPath(file.getOriginalFilename());
 		
@@ -73,6 +75,10 @@ public class AnimalController {
 			Animal newAnimal = new Animal();
 			newAnimal.setName(name);
 			newAnimal.setAge(age);
+			newAnimal.setcolor(color);
+			newAnimal.setAnimalSex(animalSex);
+			newAnimal.setAnimalFivFelv(animalFivFelv);
+			newAnimal.setHistory(history);
 			newAnimal.setImageUrl(fileDownloadUri);
 			
 			Animal savedAnimal = animalRepository.save(newAnimal);
@@ -103,7 +109,9 @@ public class AnimalController {
 	//edit
 	@PutMapping("/animals/{id}")
 	public ResponseEntity<Animal> updateAnimal(@PathVariable Long id, @RequestParam("file") MultipartFile file,
-			@RequestParam("name") String name, @RequestParam("age") Integer age) {
+			@RequestParam("name") String name, @RequestParam("age") Double age, @RequestParam("color") String color,
+			@RequestParam("animalSex") AnimalSex animalSex, @RequestParam("animalFivFelv") AnimalFivFelv animalFivFelv,
+			@RequestParam("history") String history) {
 
 		Animal animal = animalRepository.findById(id).orElseThrow(() -> new AnimalNotFoundException(id));
 
@@ -117,6 +125,10 @@ public class AnimalController {
 
 			animal.setName(name);
 			animal.setAge(age);
+			animal.setcolor(color);
+			animal.setAnimalSex(animalSex);
+			animal.setAnimalFivFelv(animalFivFelv);
+			animal.setHistory(history);
 			animal.setImageUrl(fileDownloadUri);
 
 			Animal updatedAnimal = animalRepository.save(animal);
